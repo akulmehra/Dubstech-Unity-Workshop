@@ -19,11 +19,14 @@ public class EnemyAI : MonoBehaviour {
 	void Update () {
 
         // checks if our player is within the minimum distance
-        if (Vector2.Distance(player.transform.position,
-                             gameObject.transform.position)
-            < minDistance)
+        if (player != null)
         {
-            rb.velocity = new Vector2(moveSpeed * -1, 0);
+            if (Vector2.Distance(player.transform.position,
+                                 gameObject.transform.position)
+                < minDistance)
+            {
+                rb.velocity = new Vector2(moveSpeed * -1, 0);
+            }
         }
 	}
 }
